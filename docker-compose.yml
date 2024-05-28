@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  flask_web:
+    container_name: flask_web_container
+    build: ./app
+    ports:
+      - 4567:4567
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+  postgres:
+    env_file: ./app/.env-postgresql
+    container_name: postgres_flask_container
+    image: postgres:14
+    volumes:
+       - flaskdb:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+volumes:
+    flaskdb:
+      driver: local
+

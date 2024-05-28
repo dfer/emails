@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find result</title>
+</head>
+<body>
+    <a href="/">New search</a><br><br>
+
+    {% if context['count'] > 100 %}
+        <h1>More than 100 rows!</h1>
+    {% endif %}
+
+    {% if context['count'] == 0 %}
+        <h1>No results!</h1>
+    {% endif %}
+
+    <ol>
+    {% for row in context['rows'][0:100] %}
+        <li>{{ row[0] }}  {{ row[1] }}</li>
+    {% endfor %}
+    </ol>
+</body>
+</html>

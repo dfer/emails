@@ -1,0 +1,20 @@
+README
+
+For start/finish app use this commands:
+
+```
+docker-compose up --build -d   # Run the container.
+
+docker-compose down   # Stop and remove everything.
+```
+
+After starting the containers please run the request:
+It is create tables + indexes in db and insert data.
+```
+http://localhost:4567/install
+```
+
+To clear the database, run the request:
+```
+http://localhost:4567/uninstall
+```
